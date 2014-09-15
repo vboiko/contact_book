@@ -23,7 +23,7 @@
 .contact-icon {
   width: 40px;
 }
-.contact-name {
+.contact-name, .name{
   float: left;
   margin-left: 20px;
   margin-top: 10px;
@@ -45,4 +45,8 @@
   -moz-border-radius: 7px;
   border-radius: 7px;
   margin:0 7px;
+}
+.highlight {
+  background: yellow;
+  font-weight: 600;
 }

@@ -23,37 +23,33 @@
     </ul>
    </div>
    <div class="contacts">
-     <div class="contact-profile col-xs-12">
-       <img class="contact-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_8zSOldlUoIBJOkl34ZcWHcCb-n7AvrIitR7eSyKEzZxwI8OdBC09wg" alt="icon">
-       <div class="contact-name">Enrique Iglesias</div>
-     </div>
-     <div class="contact-profile col-xs-12">
-       <img class="contact-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_8zSOldlUoIBJOkl34ZcWHcCb-n7AvrIitR7eSyKEzZxwI8OdBC09wg" alt="icon">
-       <div class="contact-name">Enrique Iglesias</div>
-     </div>
+
     </div>
     <div class="controls">
       <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Add Contact</button>
       <button class="btn btn-danger">Remove</button>
     </div>
    </div>
-  <div class="col-md-8">
+  <div class="col-md-8 hidden" id="information">
     <p class="contact-details">
       Contact Details
     </p>
     <div class="detailed-info">
       <div class="info col-xs-12">
         <img class="large-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_8zSOldlUoIBJOkl34ZcWHcCb-n7AvrIitR7eSyKEzZxwI8OdBC09wg" alt="icon">
-         <div class="contact-name">Enrique Iglesias</div>
+         <div class="contact-name">
+         </div>
       </div>
       <div class="info col-xs-12">
         <div>
           <img class="phone-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGO5w0gc9p5Vrd5luz8gxMDeNqIkhcfueYrpQS0Mw_I0eTFU0yLYDtzLBW" alt="call">
-         <p class="num">+380(93)7402119</p>
+         <p class="num">
+         </p>
         </div>
         <div>
           <img class="email-icon" src="https://cdn1.iconfinder.com/data/icons/simple-icons/4096/email-4096-black.png" alt="call">
-         <p class="email">vladusya89@ukr.net</p>
+         <p class="email">
+         </p>
         </div>
       </div>
     </div>
@@ -69,8 +65,12 @@
         <div class="modal-body">
           <form role="form">
             <div class="form-group">
+              <label for="inputName">Name</label>
+              <input type="text" class="form-control" id="inputName" placeholder="Enter name" required>
+            </div>
+            <div class="form-group">
               <label for="inputEmail">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" required>
+              <input type="email" class="form-control" id="inputEmail" placeholder="Enter email" required>
             </div>
             <div class="form-group">
               <label for="inputMobile">Mobile number</label>
@@ -82,7 +82,7 @@
               <p class="help-block">Download your contact avatar</p>
             </div>
             <div class="form-group">
-              <p><input class="form-control" list="group" placeholder="Select Contact group" required>
+              <p><input id="inputGroup" class="form-control" list="group" placeholder="Select Contact group" required>
                <datalist id="group">
                 <option value="Most awesome"></option>
                 <option value="Karate team"></option>
@@ -91,7 +91,7 @@
                 <option value="Other"></option>
                </datalist></p>
             </div>
-            <button type="submit" class="btn btn-info">Submit</button>
+            <button id="submit_form" type="submit" class="btn btn-info">Submit</button>
           </form>
         </div>
       </div>
@@ -99,7 +99,7 @@
   </div>
 </div>
 </body>
-<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="libs/jquery-2.1.1.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="contact.js"></script>
 </html>
