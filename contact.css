@@ -50,3 +50,6 @@
   background: yellow;
   font-weight: 600;
 }
+.btn {
+  outline: none !important;
+}

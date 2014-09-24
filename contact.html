@@ -9,7 +9,7 @@
 <body>
 <div class="container">
   <div class="col-md-4">
-    <input class="form-control" type="search" name="googlesearch" placeholder="search for your favorite contact!">
+    <input id="search" class="form-control" type="search" name="googlesearch" placeholder="search for your favorite contact!">
   <div class="dropdown">
     <button class="dropdown-toggle form-control" type="button" id="dropdownMenu1" data-toggle="dropdown">
       All Contacts
@@ -28,6 +28,7 @@
     <div class="controls">
       <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Add Contact</button>
       <button class="btn btn-danger">Remove</button>
+      <button class="btn btn-warning">Edit</button>
     </div>
    </div>
   <div class="col-md-8 hidden" id="information">
@@ -91,7 +92,7 @@
                 <option value="Other"></option>
                </datalist></p>
             </div>
-            <button id="submit_form" type="submit" class="btn btn-info">Submit</button>
+            <button id="submit_form" type="button" class="btn btn-info">Submit</button>
           </form>
         </div>
       </div>
