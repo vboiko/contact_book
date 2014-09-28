@@ -12,7 +12,9 @@
     <input id="search" class="form-control" type="search" name="googlesearch" placeholder="search for your favorite contact!">
   <div class="dropdown">
     <button class="dropdown-toggle form-control" type="button" id="dropdownMenu1" data-toggle="dropdown">
+      <span class="active_group">
       All Contacts
+      </span>
       <span class="caret"></span>
     </button>
     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -27,8 +29,8 @@
     </div>
     <div class="controls">
       <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Add Contact</button>
-      <button class="btn btn-danger">Remove</button>
-      <button class="btn btn-warning">Edit</button>
+      <button class="btn btn-danger hidden">Remove</button>
+      <button class="btn btn-warning hidden">Edit</button>
     </div>
    </div>
   <div class="col-md-8 hidden" id="information">
@@ -65,32 +67,26 @@
         </div>
         <div class="modal-body">
           <form role="form">
-            <div class="form-group">
+            <div class="form-group required">
               <label for="inputName">Name</label>
               <input type="text" class="form-control" id="inputName" placeholder="Enter name" required>
             </div>
-            <div class="form-group">
+            <div class="form-group required">
               <label for="inputEmail">Email address</label>
-              <input type="email" class="form-control" id="inputEmail" placeholder="Enter email" required>
+              <input type="email" id="inputEmail" class="form-control" placeholder="Enter email" required>
             </div>
-            <div class="form-group">
+            <div class="form-group required">
               <label for="inputMobile">Mobile number</label>
-              <input type="tel" pattern="[0-9]{10}" class="form-control" id="inputMobile" placeholder="cell number" required>
+              <input type="text" class="form-control" id="inputMobile" placeholder="cell number">
             </div>
-            <div class="form-group">
-              <label for="inputFile">Avatar</label>
-              <input type="file" id="inputFile">
-              <p class="help-block">Download your contact avatar</p>
-            </div>
-            <div class="form-group">
-              <p><input id="inputGroup" class="form-control" list="group" placeholder="Select Contact group" required>
-               <datalist id="group">
-                <option value="Most awesome"></option>
-                <option value="Karate team"></option>
-                <option value="Coleagues"></option>
-                <option value="Family"></option>
-                <option value="Other"></option>
-               </datalist></p>
+            <div class="form-group required">
+              <label for="inputGroup">Select your contact's group</label>
+              <select id="inputGroup" class="btn-default">
+                <option>Most awesome</option>
+                <option>Karate team</option>
+                <option>Coleagues</option>
+                <option>Family</option>
+              </select>
             </div>
             <button id="submit_form" type="button" class="btn btn-info">Submit</button>
           </form>
