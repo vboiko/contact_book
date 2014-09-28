@@ -82,6 +82,8 @@ $(document).on('click', '#submit_form', function(){
 			$('#inputEmail').addClass('error').after('<span class="email-error">Please provide valid email</span>');
 		}
 	}else if(!inputMobile || !phone.test(inputMobile)){
+		$('#inputName').removeClass('error');
+		$('.name-error').remove();
 		$('.email-error').remove();
 		$('#inputEmail').removeClass('error');
 		if($('.tel-error').length < 1) {
@@ -119,21 +121,45 @@ $(document).on('click', '#update_form', function(){
 	var inputEmail = $('#inputEmail').val();
 	var inputMobile = $('#inputMobile').val();
 	var inputGroup = $('#inputGroup').val();
-	for (var i in CONTACT) {
-		if (CONTACT[i].name == $('.highlight .name').text()) {
-			CONTACT[i] = {
-				name: inputName,
-				email: inputEmail,
-				cell: inputMobile,
-				group: inputGroup
+	var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
+	var phone = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
+	if(!inputName) {
+		if($('.name-error').length < 1) {
+			$('#inputName').addClass('error').after('<span class="name-error">name should not be blank</span>');
+		}
+	}else if(!inputEmail || !pattern.test(inputEmail)){
+		$('.name-error').remove();
+		$('#inputName').removeClass('error');
+		if($('.email-error').length < 1) {
+			$('#inputEmail').addClass('error').after('<span class="email-error">Please provide valid email</span>');
+		}
+	}else if(!inputMobile || !phone.test(inputMobile)){
+		$('.name-error').remove();
+		$('#inputName').removeClass('error');
+		$('.email-error').remove();
+		$('#inputEmail').removeClass('error');
+		if($('.tel-error').length < 1) {
+			$('#inputMobile').addClass('error').after('<span class="tel-error">Please add contact\'s cell number</span>');
+		}
+	}else{
+		$('.tel-error').remove();
+		$('input').removeClass('error');
+		for (var i in CONTACT) {
+			if (CONTACT[i].name == $('.highlight .name').text()) {
+				CONTACT[i] = {
+					name: inputName,
+					email: inputEmail,
+					cell: inputMobile,
+					group: inputGroup
+				}
 			}
 		}
+		render_contacts_list();
+		$('#myModal').modal('hide');
+		$('#information').addClass('hidden');
+		$('.btn-danger').addClass('hidden');
+		$('.btn-warning').addClass('hidden');
 	}
-	render_contacts_list();
-	$('#myModal').modal('hide');
-	$('#information').addClass('hidden');
-	$('.btn-danger').addClass('hidden');
-	$('.btn-warning').addClass('hidden');
 });
 
 // search filter
