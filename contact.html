@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="contact.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <title>Contact book</title>
+</head>
+<body>
+<div class="container">
+  <div class="col-md-4">
+    <input id="search" class="form-control" type="search" name="googlesearch" placeholder="search for your favorite contact!">
+  <div class="dropdown">
+    <button class="dropdown-toggle form-control" type="button" id="dropdownMenu1" data-toggle="dropdown">
+      <span class="active_group">
+      All Contacts
+      </span>
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Most awesome</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Karate team</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Coleagues</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Family</a></li>
+    </ul>
+   </div>
+   <div class="contacts">
+
+    </div>
+    <div class="controls">
+      <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Add Contact</button>
+      <button class="btn btn-danger hidden">Remove</button>
+      <button class="btn btn-warning hidden">Edit</button>
+    </div>
+   </div>
+  <div class="col-md-8 hidden" id="information">
+    <p class="contact-details">
+      Contact Details
+    </p>
+    <div class="detailed-info">
+      <div class="info col-xs-12">
+        <img class="large-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_8zSOldlUoIBJOkl34ZcWHcCb-n7AvrIitR7eSyKEzZxwI8OdBC09wg" alt="icon">
+         <div class="contact-name">
+         </div>
+      </div>
+      <div class="info col-xs-12">
+        <div>
+          <img class="phone-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGO5w0gc9p5Vrd5luz8gxMDeNqIkhcfueYrpQS0Mw_I0eTFU0yLYDtzLBW" alt="call">
+         <p class="num">
+         </p>
+        </div>
+        <div>
+          <img class="email-icon" src="https://cdn1.iconfinder.com/data/icons/simple-icons/4096/email-4096-black.png" alt="call">
+         <p class="email">
+         </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="myModalLabel">Add new contact</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group required">
+              <label for="inputName">Name</label>
+              <input type="text" class="form-control" id="inputName" placeholder="Enter name" required>
+            </div>
+            <div class="form-group required">
+              <label for="inputEmail">Email address</label>
+              <input type="email" id="inputEmail" class="form-control" placeholder="Enter email" required>
+            </div>
+            <div class="form-group required">
+              <label for="inputMobile">Mobile number</label>
+              <input type="text" class="form-control" id="inputMobile" placeholder="cell number">
+            </div>
+            <div class="form-group required">
+              <label for="inputGroup">Select your contact's group</label>
+              <select id="inputGroup" class="btn-default">
+                <option>Most awesome</option>
+                <option>Karate team</option>
+                <option>Coleagues</option>
+                <option>Family</option>
+              </select>
+            </div>
+            <button id="submit_form" type="button" class="btn btn-info">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script src="libs/jquery-2.1.1.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="contact.js"></script>
+</html>

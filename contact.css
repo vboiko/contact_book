@@ -1,0 +1,83 @@
+body {
+  background-color: cadetblue;
+}
+.container {
+  margin-top: 50px;
+  padding: 20px;
+  background: #fafafa;
+  border-radius: 4px;
+}
+.name-error, .tel-error, .email-error {
+  color: red;
+}
+.error {
+  border: 1px solid red;
+}
+.required label:after {
+  content:"*";color:red;
+}
+.dropdown-toggle {
+  background: #e1e1e1;
+}
+.dropdown-menu {
+  width: 100%;
+}
+.contact-icon, .contact-profile, .large-icon {
+  border-radius: 3px;
+}
+.controls {
+  text-align: center;
+}
+.contact-profile {
+  padding-left: 0;
+  margin-bottom: 5px;
+  border: 1px solid #e1e1e1;
+  background: #fff;
+}
+.large-icon, .contact-icon {
+  float: left;
+  margin: 5px;
+}
+.contact-icon {
+  width: 40px;
+}
+.contact-name, .name{
+  float: left;
+  margin-left: 20px;
+  margin-top: 10px;
+  font-size: 16px;
+  color: #999;  
+  text-transform: capitalize;
+}
+.contact-details {
+  margin-top: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.info:last-child {
+  margin-top: 10px;
+}
+.phone-icon, .email-icon {
+  float: left;
+  width: 20px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  margin:0 7px;
+}
+.highlight {
+  background: darkturquoise;
+}
+.btn-success {
+  background: cadetblue;
+}
+.btn-success:hover {
+  background: darkcyan;
+}
+.highlight .name {
+  color: #ffffff;
+}
+.btn {
+  outline: none !important;
+}
