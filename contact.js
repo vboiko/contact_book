@@ -30,7 +30,7 @@ function render_contacts_list(){
   li_html += '</div>';
   $('.contacts').replaceWith(li_html);
 }
-// filles in preview form with basic contacts from array of objects
+// fills in preview form with basic contacts from array of objects
 function get_db_contact(name){
 	var i = 0;
 	while(i < CONTACT.length) {
@@ -115,7 +115,7 @@ $(document).on('click', '.btn-warning', function(){
 		$('#inputGroup').val(current_contact.group);
 	}
 });
-// updates the form with edited info of the contact
+// updates and validates the form with edited info of the contact
 $(document).on('click', '#update_form', function(){
 	var inputName = $('#inputName').val();
 	var inputEmail = $('#inputEmail').val();
