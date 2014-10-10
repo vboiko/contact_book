@@ -19,6 +19,7 @@ var CONTACT = CONTACT || [{
 	cell: "0974021900",
 	group: "Coleagues"
 }]
+var GROUP = GROUP || ["Karate team", "Family", "Most awesome", "Coleagues"];
 // renders contact preview info on the left
 function render_contacts_list(){
   var li = 0;
@@ -41,6 +42,24 @@ function get_db_contact(name){
 		i++;
 	}
 }
+//rendering group list
+function group_renderer(){
+	var i = 0;
+	var groups_html = '<ul id="group_selector" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1"><li role="presentation"><a role="menuitem" tabindex="-1" href="#">All Contacts</a></li>';
+	while(i < GROUP.length) {
+		groups_html += '<li role="presentation"><a role="menuitem" tabindex="-1" href="#">' + GROUP[i] + '</a></li>';
+		i++;
+	}
+	groups_html += '</ul>';
+	$('#group_selector').replaceWith(groups_html);
+}
+function sameGroup(name){
+	if($.inArray(name, GROUP) == -1){
+		return false;
+	}else{
+		return true;
+	}
+}
 // render selected contact detailed info on the right
 $(document).on('click', '.contact-profile', function(){
 	var name = $(this).find('.name').text();
@@ -48,18 +67,14 @@ $(document).on('click', '.contact-profile', function(){
 	$('.contact-name').text(current_contact.name);
 	$('.num').text(current_contact.cell);
 	$('.email').text(current_contact.email);
-	$('#information').removeClass('hidden');
 	$(this).addClass('highlight').siblings().removeClass('highlight');
-	$('.btn-danger').removeClass('hidden');
-	$('.btn-warning').removeClass('hidden');
+	$('.btn-danger, .btn-warning, .btn-default, #information').removeClass('hidden');
 });
 // remove selected contact with class highlight
 $(document).on('click', '.btn-danger', function(){
 	if (confirm("Are you sure?")) {
 		$('.highlight').remove();
-		$('#information').addClass('hidden');
-		$('.btn-danger').addClass('hidden');
-		$('.btn-warning').addClass('hidden');
+		$('.btn-danger, .btn-warning, .btn-default, #information').addClass('hidden');
 	}
     return false;
 });
@@ -156,9 +171,7 @@ $(document).on('click', '#update_form', function(){
 		}
 		render_contacts_list();
 		$('#myModal').modal('hide');
-		$('#information').addClass('hidden');
-		$('.btn-danger').addClass('hidden');
-		$('.btn-warning').addClass('hidden');
+		$('.btn-danger, .btn-warning, .btn-default, #information').addClass('hidden');
 	}
 });
 
@@ -172,30 +185,55 @@ $('#search').keyup(function(){
 			$(this).show();
 		}
 	});
-	$('#information').addClass('hidden');
+	$('.btn-danger, .btn-warning, .btn-default, #information').addClass('hidden');
 	$('.contact-profile').removeClass('highlight');
-	$('.btn-danger').addClass('hidden');
-	$('.btn-warning').addClass('hidden');
 });
 // group filter
 $(document).on('click', '.dropdown-menu li a', function(){
 	var active_group = $(this).text();
 	$('.active_group').text(active_group);
-	for (var i in CONTACT) {
-		if (CONTACT[i].group == active_group) {
-			$('.contact-profile ').eq(i).show();
-		}else{
-			$('.contact-profile ').eq(i).fadeOut();
+	if(active_group == 'All Contacts') {
+		$('.contact-profile').show();
+	}else{
+		for (var i in CONTACT) {
+			if (CONTACT[i].group == active_group) {
+				$('.contact-profile ').eq(i).show();
+			}else{
+				$('.contact-profile ').eq(i).fadeOut();
+			}
 		}
 	}
-	$('#information').addClass('hidden');
 	$('.contact-profile').removeClass('highlight');
-	$('.btn-danger').addClass('hidden');
-	$('.btn-warning').addClass('hidden');
+	$('.btn-danger, .btn-warning, .btn-default, #information').addClass('hidden');
+});
+//new group
+$(document).on('click', '#submit_group', function(){
+	var new_group = $('#inputNewGroup').val();
+	if (new_group.length > 0) {
+		var contact = get_db_contact($('.highlight .name').text());
+		if(sameGroup(new_group) == false){
+			contact.group = new_group;
+			GROUP.push(new_group);
+			group_renderer();
+			$('#newGroup').modal('hide');
+		}else{
+			$('#inputNewGroup').parent().addClass('has-error');
+			$('.group-error').replaceWith('<span class="group-error">Such group already exists!</span>');
+		}
+	} else {
+		$('#inputNewGroup').parent().addClass('has-error');
+		$('.group-error').replaceWith('<span class="group-error">Group name can\'t be blank!</span>');
+	}
 });
 // clears the modal form every time after it is being closed
 $('#myModal').on('hidden.bs.modal', function () {
 	$('input').val('');
 	$('.btn-info').attr('id', 'submit_form').text('Submit');
 });
+$('#newGroup').on('hidden.bs.modal', function () {
+	$('input').val('');
+	$('#inputNewGroup').parent().removeClass('has-error');
+	$('.group-error').text('');
+});
 render_contacts_list();
+group_renderer();

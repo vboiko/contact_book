@@ -17,11 +17,7 @@
       </span>
       <span class="caret"></span>
     </button>
-    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Most awesome</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Karate team</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Coleagues</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Family</a></li>
+    <ul id="group_selector" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     </ul>
    </div>
    <div class="contacts">
@@ -31,6 +27,7 @@
       <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Add Contact</button>
       <button class="btn btn-danger hidden">Remove</button>
       <button class="btn btn-warning hidden">Edit</button>
+      <button class="btn btn-default hidden" data-toggle="modal" data-target="#newGroup">New Group</button>
     </div>
    </div>
   <div class="col-md-8 hidden" id="information">
@@ -57,7 +54,7 @@
       </div>
     </div>
   </div>
-  <!-- Modal -->
+  <!-- Modal main -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -91,6 +88,19 @@
             <button id="submit_form" type="button" class="btn btn-info">Submit</button>
           </form>
         </div>
+      </div>
+    </div>
+  </div>
+  <!-- modal small to create new group -->
+  <div id="newGroup" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <div class="form-group">
+          <input type="text" class="form-control" id="inputNewGroup" placeholder="Enter group">
+          <span class="group-error"></span>
+        </div>
+        <button id="submit_group" type="button" class="btn">Create group</button>
       </div>
     </div>
   </div>

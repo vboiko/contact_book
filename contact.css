@@ -7,7 +7,7 @@ body {
   background: #fafafa;
   border-radius: 4px;
 }
-.name-error, .tel-error, .email-error {
+.name-error, .tel-error, .email-error, .group-error {
   color: red;
 }
 .error {
@@ -75,9 +75,19 @@ body {
 .btn-success:hover {
   background: darkcyan;
 }
+.btn-default {
+  background: #fafafa;
+  color: #d43f3a;
+}
+.btn-default:hover {
+  color: #d43f3a;
+}
 .highlight .name {
   color: #ffffff;
 }
 .btn {
   outline: none !important;
+}
+.modal-sm .modal-content {
+  padding: 10px;
 }
